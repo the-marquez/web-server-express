@@ -8,8 +8,6 @@ export class Server {
 
     async start() {
 
-        //middlewares
-        
         //public folders
         this.app.use( express.static('public') );
 
