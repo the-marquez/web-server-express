@@ -12,7 +12,7 @@ function main(){
 }
 
 (async ()=>{
-    main(); 
+    await main(); 
 })();
 
 
