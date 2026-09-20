@@ -16,7 +16,7 @@ export class Server {
     constructor(options: Options){
         this.port = options.PORT ?? 3000;
         this.publicPath = options.PUBLIC_PATH ?? 'public';
-        this.server = express()
+        this.server = express();
     }
 
     async start() {
@@ -27,8 +27,8 @@ export class Server {
         this.server.use( express.static( this.publicPath ) );
 
         this.server.get(/.*/, (req, res)=>{
-            const indexPath = path.join(__dirname + `../../../${this.publicPath}/index.html`);
-            console.log({path: indexPath});
+            const indexPath = path.join( import.meta.dirname + `../../../${this.publicPath}/index.html`);
+            res.sendFile(indexPath);
         });
 
         this.server.listen( this.port , ()=>{
